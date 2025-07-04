@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import ForeCastList from './ForecastList';
+import ForeCastList from './ForeCastList';
 
 const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
   if (loading) {
