@@ -50,7 +50,7 @@ function App() {
   return (
     <React.Fragment>
       <Container maxWidth="lg">
-        <Box sx={{width: '100%', minHeight: 80, p: 2 }}>
+        <Box sx={{ minHeight: 80, p: 2 }}>
           <h1>Weather App</h1>
           <SearchBar city={city} setCity={setCity} fetchWeather={fetchWeather} fetchForecast={fetchForecast} forecast={forcast} />
           <WeatherCard loading={loading} weather={weather} forecast={forcast} fetchForecast={fetchForecast}/>
