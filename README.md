@@ -1,12 +1,90 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern weather app built with **Vite + React** and **Material UI**.  
+Get current weather and 5-day forecast for any city using the OpenWeatherMap API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Search weather by city name
+- Current weather details (temperature, humidity, wind, etc.)
+- 5-day forecast in a responsive grid
+- Material UI design
+- Error handling for invalid cities or network issues
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Demo
+
+[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/)
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```sh
+git clone https://github.com/kausaranjum94/weather-app.git
+cd weather-app
+```
+
+### 2. Install dependencies
+
+```sh
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env` file in the root directory:
+
+```
+VITE_WEATHER_API_KEY=your_openweathermap_api_key
+```
+
+> **Never commit your `.env` file to GitHub!**
+
+### 4. Run the app locally
+
+```sh
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+---
+
+## Deployment
+
+### Deploy to Netlify
+
+1. Push your code to GitHub.
+2. Go to [Netlify](https://app.netlify.com/) and create a new site from GitHub.
+3. Set the **build command** to `npm run build` and the **publish directory** to `dist`.
+4. In **Site settings > Build & deploy > Environment**, add your API key as:
+   - Key: `VITE_WEATHER_API_KEY`
+   - Value: `your_openweathermap_api_key`
+5. Deploy!
+
+---
+
+## Tech Stack
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Material UI](https://mui.com/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+
+---
+
+## License
+
+MIT
+
+---
+
+## Credits
+
+Made
