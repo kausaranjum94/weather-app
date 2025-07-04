@@ -17,7 +17,7 @@ Get current weather and 5-day forecast for any city using the OpenWeatherMap API
 
 ## Demo
 
-[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/)
+[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://weatherlyzone.netlify.app/)
 
 ---
 
