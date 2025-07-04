@@ -23,12 +23,15 @@ const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
   if (!weather) return null;
 
   return (
-    <Card sx={{ maxWidth: "100%", margin: 'auto', mt: 4 }}>
+    <Card sx={{ maxWidth: "100%", margin: 'auto', mt: 4, p: 2, borderRadius: 3 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" align="center">
           {weather.name}, {weather.sys.country}
         </Typography>
-        <Grid item xs={6}>
+        <Typography variant="subtitle1" align="center" sx={{ color: '#1976d2', fontWeight: 600, mb: 1 }}>
+          {new Date(weather.dt * 1000).toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' })}
+        </Typography>
+        <Grid >
           <Typography variant="body1" sx={{ color: '#0089ff', fontSize: '2.5rem', fontWeight: 'bold' }}>
             {weather.main.temp}°C
           </Typography>
@@ -37,7 +40,7 @@ const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
           </Typography>
         </Grid>
         <Grid container spacing={2} sx={{justifyContent: "center", gap: "30px", mt: 4}}>
-          <Grid item xs={6}>
+          <Grid >
             <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}> 
               Feels Like
             </Typography>
@@ -45,7 +48,7 @@ const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
               {weather.main.feels_like}°C
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid >
             <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
               Min / Max
             </Typography>
@@ -53,7 +56,7 @@ const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
               {weather.main.temp_min}°C / {weather.main.temp_max}°C
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid >
             <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
               Humidity
             </Typography>
@@ -61,7 +64,7 @@ const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
               {weather.main.humidity}%
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid >
             <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
               Wind Speed
             </Typography>

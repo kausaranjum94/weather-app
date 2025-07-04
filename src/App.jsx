@@ -22,7 +22,7 @@ function App() {
       const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
       const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
       const data = await response.json();
-      console.log("Forecast Data", data);
+      // console.log("Forecast Data", data);
       setForcast(data);
     }catch(error){
       setError("Error Fetching Forecast");
@@ -38,7 +38,7 @@ function App() {
 
       const data = await response.json();
       setWeather(data);
-      console.log("Weather key Data", data);
+      // console.log("Weather key Data", data);
       setError(null);
     } catch (error) {
       setError("City not found or network error")
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="md" >
+      <Container maxWidth="lg">
         <Box sx={{width: '100%', minHeight: 80, p: 2 }}>
           <h1>Weather App</h1>
           <SearchBar city={city} setCity={setCity} fetchWeather={fetchWeather} fetchForecast={fetchForecast} forecast={forcast} />
