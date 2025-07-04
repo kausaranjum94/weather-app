@@ -1,19 +1,80 @@
-import React from 'react'
+import React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid';
+import ForeCastList from './ForecastList';
 
- const WeatherCard = ({ loading,  weather }) => {
-  return weather ? (
-    !loading ? (
-      <>
-      <h2>{weather.name}, {weather.sys.country}</h2>
-      <p>Temperature: {weather.main.temp}°C</p>
-      <p>Feels Like: {weather.main.feels_like}°C</p>
-      <p>Min: {weather.main.temp_min}°C / Max: {weather.main.temp_max}°C</p>
-      <p>Humidity: {weather.main.humidity}%</p>
-      <p>Wind Speed: {weather.wind.speed} m/s</p>
-      <p>Weather: {weather.weather[0].main} ({weather.weather[0].description})</p>
-      </>
-    ) : "Weather Data Loading"
-  ) : null;
-}
+const WeatherCard = ({ loading, weather, forecast, fetchForecast }) => {
+  if (loading) {
+    return (
+      <Card sx={{ maxWidth: 345, margin: 'auto', mt: 4, textAlign: 'center' }}>
+        <CardContent>
+          <CircularProgress />
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+            Weather Data Loading...
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (!weather) return null;
+
+  return (
+    <Card sx={{ maxWidth: "100%", margin: 'auto', mt: 4 }}>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div" align="center">
+          {weather.name}, {weather.sys.country}
+        </Typography>
+        <Grid item xs={6}>
+          <Typography variant="body1" sx={{ color: '#0089ff', fontSize: '2.5rem', fontWeight: 'bold' }}>
+            {weather.main.temp}°C
+          </Typography>
+          <Typography variant="body1">
+            {weather.weather[0].description}
+          </Typography>
+        </Grid>
+        <Grid container spacing={2} sx={{justifyContent: "center", gap: "30px", mt: 4}}>
+          <Grid item xs={6}>
+            <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}> 
+              Feels Like
+            </Typography>
+            <Typography variant="body1">
+              {weather.main.feels_like}°C
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
+              Min / Max
+            </Typography>
+            <Typography variant="body1">
+              {weather.main.temp_min}°C / {weather.main.temp_max}°C
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
+              Humidity
+            </Typography>
+            <Typography variant="body1">
+              {weather.main.humidity}%
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="body2" color="text.secondary" sx={{fontWeight: "700"}}>
+              Wind Speed
+            </Typography>
+            <Typography variant="body1">
+              {weather.wind.speed} m/s
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+
+      <ForeCastList forecast={forecast} fetchForecast={fetchForecast} />
+    </Card>
+  );
+};
 
 export default WeatherCard;
